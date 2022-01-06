@@ -1,17 +1,15 @@
-public class Circle extends Shape{
-    int radius;
+class Circle extends Shape{
+    final int RADIUS;
 
     Circle(){
-        this(100);
+        this.RADIUS = 100;
     }
 
-    Circle(int radius) {
-        this.radius = radius;
-        this.length = 0;
-        this.height = 0;
+    Circle(int RADIUS) {
+        this.RADIUS = RADIUS;
     }
 
     int getWidth() {
-        return this.radius * this.radius;
+        return this.RADIUS;
     }
 }
