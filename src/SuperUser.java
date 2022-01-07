@@ -7,7 +7,7 @@ public class SuperUser extends User{
         this.privileges = privileges;
     }
 
-    public String getprivileges(){
+    public String getPrivileges(){
         String result = "";
         for (int privilege : privileges) {
             result += Integer.toString(privilege) + ',';
