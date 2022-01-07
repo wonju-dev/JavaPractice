@@ -8,9 +8,4 @@ public class SuperUser extends User{
         super(name, superid);
         this.id = id;
     }
-
-    void method(){
-        System.out.println("super user method");
-    }
-
 }
