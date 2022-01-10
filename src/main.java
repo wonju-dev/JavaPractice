@@ -3,7 +3,7 @@ public class main {
         try {
             myMethod();
         } catch(ArrayIndexOutOfBoundsException e) {
-            e.getMessage();
+            System.out.println("outer handling");
         } finally {
             System.out.println("finally");
         }
@@ -12,7 +12,12 @@ public class main {
     static void myMethod() throws ArrayIndexOutOfBoundsException {
         int[] intArray = new int[]{0, 1, 2, 3, 4};
         for (int i = 0; i < intArray.length + 1; i++) {
-            System.out.println(intArray[i]);
+            try {
+                System.out.println(intArray[i]);
+            } catch (ArrayIndexOutOfBoundsException e) {
+                System.out.println("inner handling");
+                throw e;
+            }
         }
     }
 }
