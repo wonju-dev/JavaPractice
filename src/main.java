@@ -1,23 +1,16 @@
+import java.util.*;
+import java.lang.Integer;
+
 public class main {
     public static void main(String args[]) {
-        try {
-            myMethod();
-        } catch(ArrayIndexOutOfBoundsException e) {
-            System.out.println("outer handling");
-        } finally {
-            System.out.println("finally");
-        }
+        System.out.println(Computer.a);
+        Computer myComputer = new Computer(1);
+        System.out.println(myComputer.a);
+        System.out.println(Computer.a);
+        System.out.println(returnFloat(10));
     }
 
-    static void myMethod() throws ArrayIndexOutOfBoundsException {
-        int[] intArray = new int[]{0, 1, 2, 3, 4};
-        for (int i = 0; i < intArray.length + 1; i++) {
-            try {
-                System.out.println(intArray[i]);
-            } catch (ArrayIndexOutOfBoundsException e) {
-                System.out.println("inner handling");
-                throw e;
-            }
-        }
+    static float returnFloat(int a) {
+        return a; // typecasting
     }
 }
