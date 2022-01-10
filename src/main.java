@@ -1,11 +1,23 @@
 public class main {
     public static void main(String args[]) {
-        User user = (User) new SuperUser();
-        SuperUser superUser = new SuperUser(); // no Error : 자손 타입의 참조 변수가, 조상 타입의 참조변수가 가리키는 자손 타입 인스턴스를 가리키고 있음
+        try {
+            myMethod();
+        } catch(ArrayIndexOutOfBoundsException e) {
+            System.out.println("outer handling");
+        } finally {
+            System.out.println("finally");
+        }
+    }
 
-        user.method();
-        superUser.method();
-        System.out.println(user.id);
-        System.out.println(superUser.id);
+    static void myMethod() throws ArrayIndexOutOfBoundsException {
+        int[] intArray = new int[]{0, 1, 2, 3, 4};
+        for (int i = 0; i < intArray.length + 1; i++) {
+            try {
+                System.out.println(intArray[i]);
+            } catch (ArrayIndexOutOfBoundsException e) {
+                System.out.println("inner handling");
+                throw e;
+            }
+        }
     }
 }
