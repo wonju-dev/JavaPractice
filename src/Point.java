@@ -1,25 +1,19 @@
-public class Point {
-    private int x;
-    private int y;
-
+public class Point implements Cloneable{
+    int x,y;
     Point(int x, int y) {
         this.x = x;
         this.y = y;
     }
 
-    int getX() {
-        return this.x;
+    public String toString(){
+        return this.x + ", " + this.y;
     }
 
-    int getY() {
-        return this.y;
-    }
-
-    void setX(int x) {
-        this.x = x;
-    }
-
-    void setY(int y) {
-        this.y = y;
+    public Point clone(){
+        Point newPoint = null;
+        try {
+            newPoint = (Point) super.clone();
+        } catch (CloneNotSupportedException e) {}
+        return newPoint;
     }
 }
