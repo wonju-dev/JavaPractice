@@ -3,17 +3,17 @@ import java.lang.Integer;
 
 public class main {
     public static void main(String args[]) {
-        Point p1 = new Point(1,2);
-        Point p2 = p1.clone();
+        Circle c1 = new Circle(new Point(1,2));
+        Circle c2 = c1.clone();
+        Circle c3 = c1; // Shallow copy
+        System.out.println(c1.point.toString());
+        System.out.println(c2.point.toString());
+        System.out.println(c3.point.toString());
 
-        System.out.println(p1.toString());
-        p2.x = 100;
-        System.out.println(p2.toString());
+        c1.point.x = 100;
+        System.out.println(c1.point.toString());
+        System.out.println(c2.point.toString());
+        System.out.println(c3.point.toString());
 
-        int[] a1 = {1,2,3,4};
-        int[] a2 = a1.clone();
-        a1[0] = 100;
-        System.out.println(Arrays.toString(a1));
-        System.out.println(Arrays.toString(a2));
     }
 }
