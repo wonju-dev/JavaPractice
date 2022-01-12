@@ -21,6 +21,16 @@ public class main {
         GrandChild gc3 = (GrandChild) p3;
         gc3.grandChildMethod();
         gc3.parentMethod();
+
+        System.out.println(gc1 instanceof GrandChild);
+        System.out.println(gc1 instanceof Child);
+        System.out.println(gc1 instanceof Parent);
+
+        System.out.println(p1 instanceof GrandChild);
+        System.out.println(p1 instanceof Child);
+        System.out.println(p1 instanceof Parent);
+
+
     }
 }
 
