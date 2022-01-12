@@ -1,16 +1,10 @@
-import java.util.*;
-import java.lang.Integer;
-
 public class main {
     public static void main(String args[]) {
-        String a = "abc";
-        String b = "abc";
-        String c = new String("abc");
-        String d = new String("abc");
-        System.out.println(a == b);
-        System.out.println(c == d);
-        System.out.println(a.equals(b));
-        System.out.println(b.equals(c));
-        System.out.println(c.equals(d));
+        Box<String> myStringBox = new Box<String>("ABC");
+        System.out.println(myStringBox.item.toString());
+        Box<Boolean> myBooleanBox = new Box<Boolean>(true);
+        System.out.println(myBooleanBox.item);
+        Box<int[]> myIntegerArrayBox = new Box<int[]>(new int[]{1,2,3});
+        System.out.println(myIntegerArrayBox.item.toString());
     }
 }
