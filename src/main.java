@@ -15,6 +15,12 @@ public class main {
         System.out.println(p1.getAge());
         System.out.println(p2.getId());
 
+        Parent p3 = new GrandChild();
+        // p3.grandChildMethod();
+        p3.parentMethod();
+        GrandChild gc3 = (GrandChild) p3;
+        gc3.grandChildMethod();
+        gc3.parentMethod();
     }
 }
 

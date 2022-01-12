@@ -8,4 +8,8 @@ public class Parent extends Person {
     Parent(String name, int id, int age) {
         super(name, id, age);
     }
+
+    void parentMethod(){
+        System.out.println("parent method");
+    }
 }
