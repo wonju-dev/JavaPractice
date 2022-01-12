@@ -1,2 +1,2 @@
-public class Apple extends Fruit{
+public class Apple extends Fruit implements Eatable{
 }
