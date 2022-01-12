@@ -1,2 +1,2 @@
-public class FruitBox<T extends Fruit> extends Box{
+public class FruitBox<T extends Fruit> extends Box<T>{
 }
