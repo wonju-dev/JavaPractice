@@ -1,10 +1,17 @@
 public class main {
     public static void main(String args[]) {
-        Box<String> myStringBox = new Box<String>("ABC");
-        System.out.println(myStringBox.item.toString());
-        Box<Boolean> myBooleanBox = new Box<Boolean>(true);
-        System.out.println(myBooleanBox.item);
-        Box<int[]> myIntegerArrayBox = new Box<int[]>(new int[]{1,2,3});
-        System.out.println(myIntegerArrayBox.item.toString());
+        Box<Apple> appleBox = new Box<Apple>();
+        Box<Grape> grapeBox = new Box<Grape>();
+        Box<Fruit> fruitBox = new Box<Fruit>();
+
+        appleBox.add(new Apple());
+        grapeBox.add(new Grape());
+        fruitBox.add(new Fruit());
+        fruitBox.add(new Apple());
+        fruitBox.add(new Grape());
+
+        System.out.println(appleBox.toString());
+        System.out.println(grapeBox.toString());
+        System.out.println(fruitBox.toString());
     }
 }

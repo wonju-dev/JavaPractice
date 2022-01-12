@@ -1,19 +1,22 @@
+import java.util.ArrayList;
+
 public class Box<T> {
-    T item;
+    private ArrayList<T> list = new ArrayList<T>();
 
-    Box(){
-        this(null);
+    void add(T item) {
+        this.list.add(item);
     }
 
-    Box (T item) {
-        this.item = item;
+    T get(int i) {
+        return this.list.get(i);
     }
 
-    void setItem(T item){
-        this.item = item;
+    int getSize() {
+        return this.list.size();
     }
 
-    T getItem(){
-        return this.item;
+    public String toString(){
+        return this.list.toString();
     }
+
 }
