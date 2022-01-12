@@ -1,25 +1,20 @@
 public class main {
 
     public static void main(String args[]) {
-        System.out.println(Gender.MALE.getExpectedLife(10));
-        System.out.println(Gender.FEMALE.getExpectedLife(12));
+        GrandChild gc1 = new GrandChild();
+        GrandChild gc2 = new GrandChild("a", 1,2);
+        Child c1 = new Child();
+        Child c2 = new Child("b",3,4);
+        Parent p1 = new Parent();
+        Parent p2 = new Parent("c",5,6);
+
+        System.out.println(gc1.getName());
+        System.out.println(gc2.getAge());
+        System.out.println(c1.getId());
+        System.out.println(c2.getName());
+        System.out.println(p1.getAge());
+        System.out.println(p2.getId());
+
     }
 }
-enum Gender {
-    MALE(10){
-        @Override
-        int getExpectedLife(int workload) {
-            return 2 * this.getBASE_LIFE_EXPECTANCY() * workload;
-        }
-    }, FEMALE(2) {
-        @Override
-        int getExpectedLife(int workload) {
-            return 3 * this.getBASE_LIFE_EXPECTANCY() * workload;
-        }
-    };
 
-    private final int BASE_LIFE_EXPECTANCY;
-    Gender(int value) {this.BASE_LIFE_EXPECTANCY = value;}
-    public int getBASE_LIFE_EXPECTANCY() { return this.BASE_LIFE_EXPECTANCY; }
-    abstract int getExpectedLife(int workload);
-}
