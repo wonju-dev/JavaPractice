@@ -1,20 +1,19 @@
+import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.LinkedList;
+
 public class main {
 
     public static void main(String args[]) {
-        GrandChild gc1 = new GrandChild();
-        GrandChild gc2 = new GrandChild("a", 1,2);
-        Child c1 = new Child();
-        Child c2 = new Child("b",3,4);
-        Parent p1 = new Parent();
-        Parent p2 = new Parent("c",5,6);
+        int[] arr = {1,2,3,4,5};
+        int[] arrCopy = Arrays.copyOf(arr,5);
+        int[][] arr2 = {{1,2}, {3,4}};
+        int[][] arr2Copy = {{1,2}, {3,4}};
+        System.out.println(Arrays.toString(arr)); // [1,2,3,4,5] 출력
+        System.out.println(Arrays.deepToString(arr2)); // [[1, 2], [3, 4]] : 다차원 배열은 deepToString을 사용해야한다
 
-        System.out.println(gc1.getName());
-        System.out.println(gc2.getAge());
-        System.out.println(c1.getId());
-        System.out.println(c2.getName());
-        System.out.println(p1.getAge());
-        System.out.println(p2.getId());
-
+        System.out.println(Arrays.equals(arr, arrCopy)); // true
+        System.out.println(Arrays.deepEquals(arr2, arr2Copy)); // true : 다차원 배열은 deepEquals를 사용해야한다
     }
 }
-
