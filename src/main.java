@@ -1,19 +1,24 @@
 import java.util.Arrays;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.LinkedList;
+import java.util.Comparator;
 
 public class main {
 
     public static void main(String args[]) {
-        int[] arr = {1,2,3,4,5};
-        int[] arrCopy = Arrays.copyOf(arr,5);
-        int[][] arr2 = {{1,2}, {3,4}};
-        int[][] arr2Copy = {{1,2}, {3,4}};
-        System.out.println(Arrays.toString(arr)); // [1,2,3,4,5] 출력
-        System.out.println(Arrays.deepToString(arr2)); // [[1, 2], [3, 4]] : 다차원 배열은 deepToString을 사용해야한다
+        Integer[] arr = {4,2,3,1};
+        Arrays.sort(arr, new Descending());
+        for (int a : arr) {
+            System.out.println(a);
+        }
+    }
+}
 
-        System.out.println(Arrays.equals(arr, arrCopy)); // true
-        System.out.println(Arrays.deepEquals(arr2, arr2Copy)); // true : 다차원 배열은 deepEquals를 사용해야한다
+class Descending implements Comparator {
+    public int compare(Object o1, Object o2){
+        if (o1 instanceof Comparable && o2 instanceof Comparable) {
+            Comparable c1 = (Comparable) o1;
+            Comparable c2 = (Comparable) o2;
+            return c1.compareTo(c2);
+        }
+        return -1;
     }
 }
