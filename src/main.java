@@ -1,24 +1,16 @@
-import java.util.Arrays;
-import java.util.Comparator;
+import java.util.*;
 
 public class main {
 
     public static void main(String args[]) {
-        Integer[] arr = {4,2,3,1};
-        Arrays.sort(arr, new Descending());
-        for (int a : arr) {
-            System.out.println(a);
-        }
-    }
-}
+        Set hs = new HashSet();
+        Set lhs = new LinkedHashSet();
 
-class Descending implements Comparator {
-    public int compare(Object o1, Object o2){
-        if (o1 instanceof Comparable && o2 instanceof Comparable) {
-            Comparable c1 = (Comparable) o1;
-            Comparable c2 = (Comparable) o2;
-            return c1.compareTo(c2);
+        List l = new LinkedList(hs); // linekdlist는 collection을 구현하는 class는 전부 가능한 듯?
+        Collections.sort(l); // Hashset 정렬을 위해 linkedlist로 감싸준다
+        Iterator it = l.iterator();
+        while (it.hasNext()) {
+            System.out.println(it.next());
         }
-        return -1;
     }
 }
