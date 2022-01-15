@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -5,28 +6,17 @@ import java.util.LinkedList;
 public class main {
 
     public static void main(String args[]) {
-        ArrayList al = new ArrayList();
-        LinkedList ll = new LinkedList();
-
-        ll.add('a');
-        ll.add('b');
-        ll.add('c');
-
-        al.add(1);
-        al.add(2);
-        al.add(3);
-
-        Iterator iterator = al.iterator();
-        Iterator iterator2 = ll.iterator();
-
-        while (iterator.hasNext()) {
-            Object obj = iterator.next();
-            System.out.println(obj);
+        int[] arr = {1,2,3,4,5};
+        int[] arr2 = Arrays.copyOf(arr,3);
+        int[] arr3 = Arrays.copyOfRange(arr,0,10);
+        Iterator it = Arrays.stream(arr2).iterator();
+        Iterator it2 = Arrays.stream(arr3).iterator();
+        while (it.hasNext()) {
+            System.out.println(it.next());
         }
 
-        while (iterator2.hasNext()) {
-            Object obj = iterator2.next();
-            System.out.println(obj);
+        while (it2.hasNext()){
+            System.out.println(it2.next());
         }
     }
 }
