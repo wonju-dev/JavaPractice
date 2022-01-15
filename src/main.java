@@ -1,18 +1,31 @@
-import java.util.PriorityQueue;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.LinkedList;
 
 public class main {
 
     public static void main(String args[]) {
-        PriorityQueue pq = new PriorityQueue();
-        pq.add(1);
-        pq.add(5);
-        pq.add(2);
-        pq.add(4);
-        pq.add(3);
+        ArrayList al = new ArrayList();
+        LinkedList ll = new LinkedList();
 
-        Object obj;
+        ll.add('a');
+        ll.add('b');
+        ll.add('c');
 
-        while ((obj = pq.poll()) != null) {
+        al.add(1);
+        al.add(2);
+        al.add(3);
+
+        Iterator iterator = al.iterator();
+        Iterator iterator2 = ll.iterator();
+
+        while (iterator.hasNext()) {
+            Object obj = iterator.next();
+            System.out.println(obj);
+        }
+
+        while (iterator2.hasNext()) {
+            Object obj = iterator2.next();
             System.out.println(obj);
         }
     }
