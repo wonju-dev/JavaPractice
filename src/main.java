@@ -9,7 +9,6 @@ public class main {
         PhoneBook.addNewPhoneNumber("가족", new Person("가족1", "2000"));
         PhoneBook.addNewPhoneNumber("가족", new Person("가족2", "2001"));
         PhoneBook.addNewPhoneNumber("가족", new Person("가족3", "2002"));
-
         HashMap friendList = PhoneBook.getCategory("친구");
         HashMap coworkerList = PhoneBook.getCategory("동료");
         System.out.println(friendList);
