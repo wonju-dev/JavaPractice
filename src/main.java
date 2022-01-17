@@ -1,39 +1,26 @@
 import java.util.*;
 
 public class main {
-
     public static void main(String args[]) {
-        HashMap<String, Object> hm = new HashMap<String, Object>();
-        hm.put("key1", new Integer(1)); // hm.put("1", 1);
-        hm.put("key2", new Integer(2)); // hm.put("1", 1);
+        PhoneBook.addNewPhoneNumber("친구", new Person("친구1", "1000"));
+        PhoneBook.addNewPhoneNumber("친구", new Person("친구2", "1001"));
+        PhoneBook.addNewPhoneNumber("친구", new Person("친구3", "1002"));
 
+        PhoneBook.addNewPhoneNumber("가족", new Person("가족1", "2000"));
+        PhoneBook.addNewPhoneNumber("가족", new Person("가족2", "2001"));
+        PhoneBook.addNewPhoneNumber("가족", new Person("가족3", "2002"));
+        HashMap friendList = PhoneBook.getCategory("친구");
+        HashMap coworkerList = PhoneBook.getCategory("동료");
+        System.out.println(friendList);
+        System.out.println(coworkerList);
 
-        Set entries = hm.entrySet();
-        System.out.println(entries);
-        Iterator it = entries.iterator();
-        while (it.hasNext()) {
-            System.out.println(it.next());
-            System.out.println(it.next() instanceof Map.Entry);
+        try {
+            String number1 = PhoneBook.findWithName("친구1");
+            System.out.printf("%s %s \n", "친구1", number1);
+            String number2 = PhoneBook.findWithName("깐부1");
+            System.out.printf("%s %s", "깐부1", number2);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
-
-        Set keySet = hm.keySet(); // key를 set으로 반환
-        Iterator keySetIT = keySet.iterator();
-        while (keySetIT.hasNext()) {
-            System.out.println(keySetIT.next());
-        }
-
-        Collection values = hm.values();
-        Iterator valueIt = values.iterator();
-        while (valueIt.hasNext()){
-            System.out.println(valueIt.next());
-        }
-
-        System.out.println(hm.containsKey("1"));
-        System.out.println(hm.containsValue(1));
-
-        HashMap hm2 = new HashMap();
-        hm2.put("1", 1);
-        hm2.put('2',2);
-        System.out.println(hm2.containsKey("2"));
     }
 }
