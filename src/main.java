@@ -2,16 +2,22 @@ import java.util.*;
 
 public class main {
     public static void main(String args[]) {
-        Properties properties = new Properties();
-        properties.setProperty("pro1", "value1");
-        properties.setProperty("pro2", "value2");
-        properties.setProperty("pro3", "value3");
+        List syncList = Collections.synchronizedList(new ArrayList());
+        syncList.add(1);
+        syncList.add(2);
+        syncList.add(3);
 
-        Enumeration e = properties.propertyNames();
+        Iterator it = syncList.iterator();
+        while (it.hasNext()) {
+            System.out.println(it.next());
+        }
 
-        while (e.hasMoreElements()) {
-            String element = (String) e.nextElement();
-            System.out.printf("%s %s \n", element, properties.getProperty(element));
+        List readOnlyList = Collections.unmodifiableList(new ArrayList(syncList));
+        // readOnlyList.set(3,4);
+        // readOnlyList.add(1);
+        Iterator it2 = readOnlyList.iterator();
+        while (it2.hasNext()) {
+            System.out.println(it2.next());
         }
 
     }
