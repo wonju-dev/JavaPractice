@@ -1,38 +1,18 @@
 import java.util.*;
 
 public class main {
-
     public static void main(String args[]) {
-        HashMap<String, Object> hm = new HashMap<String, Object>();
-        hm.put("key1", new Integer(1)); // hm.put("1", 1);
-        hm.put("key2", new Integer(2));
+        PhoneBook.addNewPhoneNumber("친구", "친구1", "1000");
+        PhoneBook.addNewPhoneNumber("친구", "친구2", "1001");
+        PhoneBook.addNewPhoneNumber("친구", "친구3", "1002");
 
-        Set entries = hm.entrySet();
-        System.out.println(entries);
-        Iterator it = entries.iterator();
-        while (it.hasNext()) {
-            System.out.println(it.next());
-            System.out.println(it.next() instanceof Map.Entry);
-        }
+        PhoneBook.addNewPhoneNumber("가족", "가족1", "2000");
+        PhoneBook.addNewPhoneNumber("가족", "가족1", "2001");
+        PhoneBook.addNewPhoneNumber("가족", "가족1", "2002");
 
-        Set keySet = hm.keySet(); // key를 set으로 반환
-        Iterator keySetIT = keySet.iterator();
-        while (keySetIT.hasNext()) {
-            System.out.println(keySetIT.next());
-        }
-
-        Collection values = hm.values();
-        Iterator valueIt = values.iterator();
-        while (valueIt.hasNext()){
-            System.out.println(valueIt.next());
-        }
-
-        System.out.println(hm.containsKey("1"));
-        System.out.println(hm.containsValue(1));
-
-        HashMap hm2 = new HashMap();
-        hm2.put("1", 1);
-        hm2.put('2',2);
-        System.out.println(hm2.containsKey("2"));
+        HashMap friendList = PhoneBook.getCategory("친구");
+        HashMap coworkerList = PhoneBook.getCategory("동료");
+        System.out.println(friendList);
+        System.out.println(coworkerList);
     }
 }
