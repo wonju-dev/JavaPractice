@@ -1,5 +1,6 @@
 import java.util.function.Predicate;
 import java.util.function.Supplier;
+import java.util.function.BiConsumer;
 import java.lang.Runnable;
 
 public class main {
@@ -17,6 +18,10 @@ public class main {
 
         Supplier<Person> getNewPerson = () -> new Person("no name", 0);
         Person p1 = getNewPerson.get();
+        System.out.println(p1);
+
+        BiConsumer<Person, String> setName = (Person p, String newName) -> p.name = newName;
+        setName.accept(p1, "new name");
         System.out.println(p1);
 
     }
