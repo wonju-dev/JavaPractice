@@ -1,3 +1,4 @@
-public interface MyMethod {
-    public abstract void max ();
+@FunctionalInterface
+interface MyFunction {
+    void myMethod();
 }

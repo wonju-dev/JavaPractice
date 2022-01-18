@@ -2,21 +2,9 @@ import java.util.*;
 
 public class main {
     public static void main(String args[]) {
-        MyMethod f = () -> System.out.println("lambda");
-        aMethod(f);
-
-        MyMethod ff = bMethod();
-        ff.max();
-    }
-
-    static void aMethod(MyMethod f) {
-        System.out.println("hi");
-        f.max();
-    }
-
-    static MyMethod bMethod() {
-        MyMethod f = () -> System.out.println("new Lambda");
-        return f;
+        Outer outer = new Outer();
+        Outer.Inner inner = outer.new Inner();
+        inner.method(100);
     }
 }
 
