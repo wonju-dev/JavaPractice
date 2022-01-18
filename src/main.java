@@ -1,6 +1,7 @@
 import java.util.function.Predicate;
 import java.util.function.Supplier;
 import java.util.function.BiConsumer;
+import java.util.function.BiFunction;
 import java.lang.Runnable;
 
 public class main {
@@ -23,6 +24,15 @@ public class main {
         BiConsumer<Person, String> setName = (Person p, String newName) -> p.name = newName;
         setName.accept(p1, "new name");
         System.out.println(p1);
+
+        BiFunction<Person, Integer, Integer>  setAndGetAge = (Person p, Integer newAge) -> {
+            int oldAge = p.age;
+            p.age = newAge;
+            return oldAge;
+        };
+        int oldAge = setAndGetAge.apply(p1, 10);
+        System.out.println(p1);
+        System.out.println(oldAge);
 
     }
 }
