@@ -1,10 +1,10 @@
-import java.util.*;
+import java.util.function.Predicate;
 
 public class main {
     public static void main(String args[]) {
-        Outer outer = new Outer();
-        Outer.Inner inner = outer.new Inner();
-        inner.method(100);
+        Predicate<String> isEmptyStr = s -> s.length() == 0;
+        System.out.println(isEmptyStr.test("s"));
+        System.out.println(isEmptyStr.test(""));
     }
 }
 
