@@ -1,4 +1,5 @@
 import java.util.function.Predicate;
+import java.util.function.Supplier;
 import java.lang.Runnable;
 
 public class main {
@@ -10,7 +11,27 @@ public class main {
         Runnable printHi = () -> System.out.println("hi");
         printHi.run();
 
+        Supplier<String> getWelcomeMessage = () -> "welcome!";
+        String welcomeMessage = getWelcomeMessage.get();
+        System.out.println(welcomeMessage);
+
+        Supplier<Person> getNewPerson = () -> new Person("no name", 0);
+        Person p1 = getNewPerson.get();
+        System.out.println(p1);
 
     }
 }
 
+class Person {
+    String name;
+    int age;
+
+    Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public String toString(){
+        return "name : '" + this.name + "'age : " + this.age;
+    }
+}
