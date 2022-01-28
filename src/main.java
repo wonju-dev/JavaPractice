@@ -8,5 +8,10 @@ public class main {
             Object result2 = Optional.of(new Object()); // Not Error
             System.out.println(result2);
         }
+
+        Object result3 = Optional.ofNullable(null);
+        Object result4 = Optional.ofNullable(new Object());
+        System.out.println(result3);
+        System.out.println(result4);
     }
 }
