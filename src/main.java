@@ -21,19 +21,15 @@ public class main {
         list2.add(6);
 
         // kyo
-        for (int num : list1) {
-            if (list2.contains(num)) kyo.add(num);
-        }
+        kyo.addAll(list1);
+        kyo.retainAll(list2);
         // cha
-        cha = (ArrayList) list1.clone();
-        for (int num : list2) {
-            cha.remove((Integer) num);
-        }
+        cha.addAll(list1);
+        cha.removeAll(list2);
         // hap
         hap.addAll(list1);
         hap.addAll(list2);
-        TreeSet ts = new TreeSet(hap);
-        hap = new ArrayList(ts);
+        hap.removeAll(kyo);
 
         System.out.println("list1=" + list1);
         System.out.println("list2=" + list2);
