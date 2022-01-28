@@ -42,4 +42,12 @@ public class CardDeck {
         String i = (Math.random() + "").substring(2, 4);
         return Integer.parseInt(i) % NUMBER_OF_CARD;
     }
+
+    public Card pick(int index) {
+        return cards.get(index);
+    }
+
+    public Card pick() {
+        return cards.get(getRandomNumber());
+    }
 }
