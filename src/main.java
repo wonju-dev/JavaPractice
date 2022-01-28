@@ -9,9 +9,11 @@ public class main {
             System.out.println(result2);
         }
 
-        Object result3 = Optional.ofNullable(null);
-        Object result4 = Optional.ofNullable(new Object());
+        Optional<Object> result3 = Optional.ofNullable(null);
+        Optional<Object> result4 = Optional.ofNullable(new Object());
+        Object result5 = result4.get();
         System.out.println(result3);
         System.out.println(result4);
+        System.out.println(result5);
     }
 }
