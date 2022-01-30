@@ -1,21 +1,16 @@
+import java.util.function.Function;
+import java.util.function.Supplier;
+import java.util.function.Consumer;
+import java.util.function.Predicate;
+
 public class main {
     public static void main(String[] args) {
-        MyLambda f = () -> System.out.println("hihi");
+        Class c1 = new Class(new Teacher("teacher#1"));
+        for (int i = 0; i < 10; i++) {
+            c1.addNewStudent(new Student("student#" + i));
+        }
 
-        MyLambda ff = changeMessage("hello");
-
-        System.out.println(MyLambda.class);
-        System.out.println(f.getClass());
-        System.out.println(ff.getClass());
-
-    }
-
-    static void triggerLambda (MyLambda f) {
-        f.printHello();
-    }
-
-    static MyLambda changeMessage (String message) {
-        return () -> System.out.println(message);
+        System.out.println(c1.findAllStudent());
+        System.out.println(c1.findStudent(5).get());
     }
 }
-
