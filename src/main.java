@@ -1,46 +1,23 @@
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
 public class main {
     public static void main(String[] args) {
+        MyInteger[] myIntegers = new MyInteger[10];
 
-        Rectangle a = new Rectangle();
+        for (int i = 0 ; i < 10 ; i++) {
+            myIntegers[i] = new MyInteger((int) Math.random() * 100);
+        }
 
-        // 익명 객체 1
-        Rectangle anonymous1 = new Rectangle() {
-
-            @Override
-            int get() {
-                return width;
-            }
-        };
-
-        System.out.println(a.get()); // 20
-        System.out.println(anonymous1.get()); // 10
-        System.out.println(anonymous2.get()); // 6000
-        System.out.println(a.getClass() == Rectangle.class);
-        System.out.println(anonymous1.getClass() == Rectangle.class);
-        System.out.println(anonymous1.getClass());
-        System.out.println(anonymous2.getClass() == Rectangle.class);
-        System.out.println(anonymous2.getClass());
-
+        Arrays.sort(myIntegers); // Error : has no comparator, comparable 
 
     }
-
-    // 익명 객체 2
-    static Rectangle anonymous2 = new Rectangle() {
-
-        int depth = 30;
-        @Override
-        int get() {
-            return width * height * depth;
-        }
-    };
 }
 
-class Rectangle {
+class MyInteger {
+    private int myValue;
 
-    int width = 10;
-    int height = 20;
-
-    int get() {
-        return height;
+    public MyInteger(int myValue) {
+        this.myValue = myValue;
     }
 }
