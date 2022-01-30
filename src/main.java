@@ -1,10 +1,46 @@
 public class main {
-    public static void main(String args[]) {
-        Car c1 = new Car();
-        Car c2 = new Car(2, 2);
-        Car c3 = new Car(3, 3);
+    public static void main(String[] args) {
 
-        System.out.println(c1.compare(c2, c3));
+        Rectangle a = new Rectangle();
 
+        // 익명 객체 1
+        Rectangle anonymous1 = new Rectangle() {
+
+            @Override
+            int get() {
+                return width;
+            }
+        };
+
+        System.out.println(a.get()); // 20
+        System.out.println(anonymous1.get()); // 10
+        System.out.println(anonymous2.get()); // 6000
+        System.out.println(a.getClass() == Rectangle.class);
+        System.out.println(anonymous1.getClass() == Rectangle.class);
+        System.out.println(anonymous1.getClass());
+        System.out.println(anonymous2.getClass() == Rectangle.class);
+        System.out.println(anonymous2.getClass());
+
+
+    }
+
+    // 익명 객체 2
+    static Rectangle anonymous2 = new Rectangle() {
+
+        int depth = 30;
+        @Override
+        int get() {
+            return width * height * depth;
+        }
+    };
+}
+
+class Rectangle {
+
+    int width = 10;
+    int height = 20;
+
+    int get() {
+        return height;
     }
 }
