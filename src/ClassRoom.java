@@ -29,5 +29,9 @@ public class ClassRoom {
             throw new NotFoundExecption("not found");
         }
     }
+
+    public Teacher getTeacher() {
+        return teacher;
+    }
 }
 
