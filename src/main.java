@@ -1,10 +1,13 @@
 public class main {
     public static void main(String[] args) {
         MyLambda f = () -> System.out.println("hihi");
-        triggerLambda(f);
 
         MyLambda ff = changeMessage("hello");
-        ff.printHello();
+
+        System.out.println(MyLambda.class);
+        System.out.println(f.getClass());
+        System.out.println(ff.getClass());
+
     }
 
     static void triggerLambda (MyLambda f) {
