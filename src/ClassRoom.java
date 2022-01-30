@@ -1,14 +1,13 @@
-import javax.swing.text.html.Option;
 import java.util.ArrayList;
 import java.util.Optional;
 
-public class Class {
+public class ClassRoom {
     private int counter = 0;
     private Teacher teacher;
     private ArrayList<Student> students = new ArrayList<Student>();
     private int number;
 
-    public Class(Teacher teacher) {
+    public ClassRoom(Teacher teacher) {
         this.teacher = teacher;
         number = counter;
         counter++;
@@ -22,8 +21,13 @@ public class Class {
         return this.students;
     }
 
-    public Optional<Student> findStudent(int id) {
-        return Optional.ofNullable(students.stream().filter((student) -> student.getId() == id).findAny());
+    public Student findStudent(int id) throws NotFoundExecption {
+        Optional<Student> result = students.stream().filter((student -> student.getId() == id)).findAny();
+        if (result.isPresent()) {
+            return result.get();
+        } else {
+            throw new NotFoundExecption("not found");
+        }
     }
 }
 
