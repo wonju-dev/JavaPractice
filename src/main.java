@@ -20,9 +20,9 @@ public class main {
     public static Comparator<MyInteger> comp = new Comparator<MyInteger>() {
         @Override
         public int compare(MyInteger o1, MyInteger o2) {
-            if (o1.getMyValue() > o2.getMyValue()) return 1;
+            if (o1.getMyValue() > o2.getMyValue()) return -1;
             else if (o1.getMyValue() == o2.getMyValue()) return 0;
-            else return -1;
+            else return 1;
         }
     };
 }
