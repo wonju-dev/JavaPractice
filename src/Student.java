@@ -1,6 +1,10 @@
-public class Student implements Comparable<Student>{
+public class Student implements Comparable<Student> {
     private int age;
     private String name;
+
+    public Student() {
+        this(1,"1");
+    }
 
     public Student(int age, String name) {
         this.age = age;
@@ -33,4 +37,17 @@ public class Student implements Comparable<Student>{
         else if (this.getAge() == o.getAge()) return 0;
         else return -1;
     }
+
+    public static void printHi() {
+        System.out.println("hi");
+    }
+
+    public void printHello() {
+        System.out.println("hello");
+    }
+
+    public boolean equals(Student s) {
+        return this.getName() == s.getName();
+    }
+
 }
