@@ -2,7 +2,7 @@ import java.util.*;
 
 public class main {
     public static void main(String[] args) {
-        Lambda f = new Lambda() {
+/*        Lambda f = new Lambda() {
             @Override
             public Student getOldestStudent(List<Student> students) {
                 Student oldest = students.get(0);
@@ -11,6 +11,14 @@ public class main {
                 }
                 return oldest;
             }
+        };*/
+
+        Lambda f = (List<Student> students) -> {
+            Student oldest = students.get(0);
+            for (Student student : students) {
+                if (oldest.getAge() < student.getAge()) oldest = student;
+            }
+            return oldest;
         };
 
         List students = new ArrayList<Student>();
