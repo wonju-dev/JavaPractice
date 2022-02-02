@@ -1,16 +1,18 @@
 public class Student {
-    private static int counter = 0;
-    private int id;
+    private int age;
     private String name;
 
-    public Student(String name) {
-        this.id = counter;
+    public Student(int age, String name) {
+        this.age = age;
         this.name = name;
-        counter++;
     }
 
-    public int getId() {
-        return id;
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
     }
 
     public String getName() {
@@ -22,6 +24,6 @@ public class Student {
     }
 
     public String toString() {
-        return "id : " + id + ", name : " + name;
+        return "age :" + age + " name : " + name;
     }
 }

@@ -1,15 +1,25 @@
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.List;
+
 public class main {
     public static void main(String[] args) {
-        ClassRoom c1 = new ClassRoom(new Teacher("teacher#1"));
-        for (int i = 0; i < 10; i++) {
-            c1.addNewStudent(new Student("student#" + i));
-        }
+        Lambda f = new Lambda() {
+            @Override
+            public Student getOldestStudent(List<Student> students) {
+                Student oldest = students.get(0);
+                for (Student student : students) {
+                    if (oldest.getAge() < student.getAge()) oldest = student;
+                }
+                return oldest;
+            }
+        };
 
-        System.out.println(c1.findAllStudent());
-        try {
-            System.out.println(c1.findStudent(5));
-        } catch (NotFoundExecption e) {
-            System.out.println(e.getMessage());
-        }
+        List students = new ArrayList<Student>();
+        for (int i = 1 ; i <= 5 ; i++) students.add(new Student(i,Integer.toString(i)));
+
+        Student oldest = f.getOldestStudent(students);
+        System.out.println(oldest);
+
     }
 }
