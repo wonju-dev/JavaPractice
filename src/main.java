@@ -1,4 +1,5 @@
 import java.util.*;
+import java.util.function.BiFunction;
 import java.util.function.Function;
 
 public class main {
@@ -39,15 +40,24 @@ public class main {
         Student oldest = getOldestStudent.apply(students);
         System.out.printf("oldest student is %s \n", oldest);
 
-//        Collections.sort(students, new Comparator<Student>() {
-//            public int compare(Student s1, Student s2) {
-//                if (s1.getAge() > s2.getAge()) return 1;
-//                else if (s1.getAge() == s2.getAge()) return 0;
-//                else return -1;
-//            }
-//        });
+/*        Collections.sort(students, new Comparator<Student>() {
+            public int compare(Student s1, Student s2) {
+                if (s1.getAge() > s2.getAge()) return 1;
+                else if (s1.getAge() == s2.getAge()) return 0;
+                else return -1;
+            }
+        });*/
 
-        Collections.sort(students, (Student s1, Student s2) -> s1.compareTo(s2));
+        Comparator<Student> ascending = new Comparator<Student>() {
+            @Override
+            public int compare(Student o1, Student o2) {
+                if (o1.getAge() > o2.getAge()) return 1;
+                else if (o1.getAge() == o2.getAge()) return 0;
+                else return -1;
+            }
+        };
+
+        Collections.sort(students, ascending);
 
 
         System.out.println("after sort");
