@@ -22,13 +22,16 @@ public class main {
         Student oldest = f.getOldestStudent(students);
         System.out.printf("oldest student is %s \n", oldest);
 
-        Collections.sort(students, new Comparator<Student>() {
-            public int compare(Student s1, Student s2) {
-                if (s1.getAge() > s2.getAge()) return 1;
-                else if (s1.getAge() == s2.getAge()) return 0;
-                else return -1;
-            }
-        });
+//        Collections.sort(students, new Comparator<Student>() {
+//            public int compare(Student s1, Student s2) {
+//                if (s1.getAge() > s2.getAge()) return 1;
+//                else if (s1.getAge() == s2.getAge()) return 0;
+//                else return -1;
+//            }
+//        });
+
+        Collections.sort(students, (Student s1, Student s2) -> s1.compareTo(s2));
+
 
         System.out.println("after sort");
         Iterator it = students.iterator();
