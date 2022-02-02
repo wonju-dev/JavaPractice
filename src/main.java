@@ -1,28 +1,9 @@
 import java.util.*;
-import java.util.function.BiFunction;
 import java.util.function.Function;
+import java.util.function.UnaryOperator;
 
 public class main {
     public static void main(String[] args) {
-/*        Lambda f = new Lambda() {
-            @Override
-            public Student getOldestStudent(List<Student> students) {
-                Student oldest = students.get(0);
-                for (Student student : students) {
-                    if (oldest.getAge() < student.getAge()) oldest = student;
-                }
-                return oldest;
-            }
-        };*/
-
-/*        Lambda f = (List<Student> students) -> {
-            Student oldest = students.get(0);
-            for (Student student : students) {
-                if (oldest.getAge() < student.getAge()) oldest = student;
-            }
-            return oldest;
-        };*/
-
         Function<List<Student>, Student> getOldestStudent = (List<Student> students) -> {
             Student oldest = students.get(0);
             for (Student student : students) {
@@ -40,14 +21,6 @@ public class main {
         Student oldest = getOldestStudent.apply(students);
         System.out.printf("oldest student is %s \n", oldest);
 
-/*        Collections.sort(students, new Comparator<Student>() {
-            public int compare(Student s1, Student s2) {
-                if (s1.getAge() > s2.getAge()) return 1;
-                else if (s1.getAge() == s2.getAge()) return 0;
-                else return -1;
-            }
-        });*/
-
         Comparator<Student> ascending = new Comparator<Student>() {
             @Override
             public int compare(Student o1, Student o2) {
@@ -60,11 +33,40 @@ public class main {
         Collections.sort(students, ascending);
 
 
-        System.out.println("after sort");
+        students.forEach((student)->{
+            System.out.println(student);
+        });
+
+/*        UnaryOperator<Student> increaseAge = (Student student) -> {
+            student.setAge(student.getAge() +1);
+            return student;
+        };*/
+
+/*        students.replaceAll(new UnaryOperator() {
+            @Override
+            public Object apply(Object o) {
+                Student student = (Student) o;
+                student.setAge(student.getAge() + 1);
+                return student;
+            }
+        });*/
+
+        students.replaceAll((o)->{
+            Student student = (Student) o;
+            student.setAge(student.getAge() + 1);
+            return student;
+        });
+
+        System.out.println("new Year");
+        students.forEach((student)->{
+            System.out.println(student);
+        });
+
+/*        System.out.println("after sort");
         Iterator it = students.iterator();
         while (it.hasNext()) {
             System.out.println(it.next());
-        }
+        }*/
 
     }
 }
