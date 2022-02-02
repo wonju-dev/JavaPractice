@@ -1,17 +1,18 @@
-import java.util.Arrays;
-import java.util.Iterator;
+import java.util.*;
 import java.util.stream.Stream;
+
 
 public class main {
     public static void main(String[] args) {
-        Integer[] array = {1, 2, 3, 4};
-        Stream<Integer> stream = Arrays.stream(array);
-        Stream<Integer> partialStream = Arrays.stream(array, 1,3);
+        Integer[] array = {1, 2, 3, 4, 5};
 
-        Iterator it1 = stream.iterator();
-        while (it1.hasNext()) System.out.println(it1.next());
+        List<Integer> list = new ArrayList<Integer>(Arrays.asList(array));
+        Set<Integer> set = new HashSet<Integer>(Arrays.asList(array));
 
-        Iterator it2 = partialStream.iterator();
-        while (it2.hasNext()) System.out.println(it2.next());
+        Stream<Integer> listStream = list.stream();
+        Stream<Integer> setStream = set.stream();
+
+        listStream.forEach((number)->System.out.println(number));
+        setStream.forEach((number)->System.out.println(number));
     }
 }
