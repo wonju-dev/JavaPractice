@@ -1,18 +1,17 @@
-import java.util.*;
+import java.util.stream.DoubleStream;
+import java.util.stream.IntStream;
+import java.util.stream.LongStream;
 import java.util.stream.Stream;
 
 
 public class main {
     public static void main(String[] args) {
-        Integer[] array = {1, 2, 3, 4, 5};
+        IntStream intStream = IntStream.range(1, 5); // [1,2,3,4]
+        LongStream longStream = LongStream.rangeClosed(1, 5); // [1, 2, 3, 4, 5]
+        DoubleStream doubleStream = DoubleStream.builder().add(1).add(2).add(3).build(); // [1, 2, 3]
 
-        List<Integer> list = new ArrayList<Integer>(Arrays.asList(array));
-        Set<Integer> set = new HashSet<Integer>(Arrays.asList(array));
-
-        Stream<Integer> listStream = list.stream();
-        Stream<Integer> setStream = set.stream();
-
-        listStream.forEach((number)->System.out.println(number));
-        setStream.forEach((number)->System.out.println(number));
+        Stream<Integer> intStream2 = IntStream.range(1, 5).boxed();
+        Stream<Long> longStream2 = LongStream.range(1, 5).boxed();
+        Stream<Double> doubleStream2 = DoubleStream.builder().add(1).add(2).add(3).build().boxed();
     }
 }
