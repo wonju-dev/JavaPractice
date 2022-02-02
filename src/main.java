@@ -1,4 +1,5 @@
 import java.util.*;
+import java.util.function.Function;
 
 public class main {
     public static void main(String[] args) {
@@ -13,7 +14,15 @@ public class main {
             }
         };*/
 
-        Lambda f = (List<Student> students) -> {
+/*        Lambda f = (List<Student> students) -> {
+            Student oldest = students.get(0);
+            for (Student student : students) {
+                if (oldest.getAge() < student.getAge()) oldest = student;
+            }
+            return oldest;
+        };*/
+
+        Function<List<Student>, Student> getOldestStudent = (List<Student> students) -> {
             Student oldest = students.get(0);
             for (Student student : students) {
                 if (oldest.getAge() < student.getAge()) oldest = student;
@@ -27,7 +36,7 @@ public class main {
             students.add(new Student(random, Integer.toString(random)));
         };
 
-        Student oldest = f.getOldestStudent(students);
+        Student oldest = getOldestStudent.apply(students);
         System.out.printf("oldest student is %s \n", oldest);
 
 //        Collections.sort(students, new Comparator<Student>() {
